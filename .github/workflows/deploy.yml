@@ -1,0 +1,66 @@
+name: Deploy Niko Guo portfolio
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: portfolio-pages
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore release media and initial website source
+        env:
+          SOURCE_URL: https://github.com/Nikoroman123/portfolio/releases/download/site-assets-v1/portfolio-site-source-v1.zip
+          SOURCE_SHA256: 642575bc9f946664385b17b59d5d2ad328f9177481fc74ebf6dabda4837575bd
+        shell: bash
+        run: |
+          set -euo pipefail
+          for part in $(seq -f "%03g" 1 14); do
+            curl --fail --location --retry 3 "$SOURCE_URL.part-$part" --output "$RUNNER_TEMP/portfolio.part-$part"
+          done
+          cat "$RUNNER_TEMP"/portfolio.part-* > "$RUNNER_TEMP/portfolio.zip"
+          printf '%s  %s\n' "$SOURCE_SHA256" "$RUNNER_TEMP/portfolio.zip" | sha256sum --check -
+          unzip -q "$RUNNER_TEMP/portfolio.zip" -d "$RUNNER_TEMP/portfolio-source"
+          if [ ! -f index.html ]; then
+            rsync -a --exclude='media/patrol-film-final.mp4' "$RUNNER_TEMP/portfolio-source/" ./
+            printf '.DS_Store\n_site/\nmedia/patrol-film-final.mp4\n' > .gitignore
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add index.html app.js exhibition.js project-details.js style.css case-study.css assets media .gitignore
+            git commit -m 'Import portfolio website source and artwork'
+            git push origin HEAD:main
+          fi
+          mkdir -p _site/media
+          cp index.html app.js exhibition.js project-details.js style.css case-study.css _site/
+          cp -R assets _site/assets
+          cp -R media/. _site/media/
+          cp "$RUNNER_TEMP/portfolio-source/media/patrol-film-final.mp4" _site/media/
+          test -s _site/media/lantern-film-actions-v2.mp4
+          test -s _site/media/patrol-film-final.mp4
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment
