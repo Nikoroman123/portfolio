@@ -31,13 +31,16 @@ window.portfolioDetails = {
  },
  lantern:{
   image:'lantern-pair-native.png',extra:[],
-  meta:[['项目','《小灯和小狐》'],['创作','角色绘画 / 场景美术 / 二维动画'],['成片','约 28 秒 / 24fps']],
-  videos:[{src:'lantern-film-actions-v2.mp4',label:'观看动画成片',poster:'lantern-actions-poster.jpg'}],
+  meta:[['项目','《小灯和小狐》'],['创作','角色设计 / 绘画手稿 / 场景美术'],['展示','原始手稿与角色设定']],
+  intro:'一盏灯，两位同行者。',
   sections:[
-   {eyebrow:'01 / CHARACTER STUDIES',title:'用姿态，表达安静的陪伴。',text:'提灯与递食，把人物的性格放进细小的动作里。橘色衣衫、暖黄色灯光与小狐狸的毛色相互呼应，让角色之间的关系保持温暖而克制。',layout:'character-studies',images:[{src:'lantern-carrying-native.png',caption:'小守灯人 / 提灯姿态'},{src:'lantern-offering-native.png',caption:'小守灯人 / 递食姿态'},{src:'lantern-pair-native.png',caption:'小守灯人与小狐狸 / 角色关系'}]},
-   {eyebrow:'02 / ENVIRONMENT & LIGHT',title:'从落日，到星夜。',text:'以树木、田野、村落与小路组织场景。在黄昏的暖光与星夜的蓝色之间，保留乡间的安静，也让灯笼成为连接人物与环境的一处暖色。',layout:'environment-studies',images:[{src:'lantern-sunset-tree.png',caption:'黄昏 / 树下的暖光'},{src:'lantern-sunset-path.png',caption:'夕照 / 通向村落的小路'},{src:'lantern-night-village.png',caption:'星夜 / 村落与远山'},{src:'lantern-night-path.png',caption:'星夜 / 田野中的归途'}]}
+   {eyebrow:'01 / ORIGINAL DESIGN',title:'从线稿里，找到温暖的轮廓。',text:'保留最初的角色线稿与上色对照：小守灯人的低髻、交领与宽袖，小狐狸的大耳朵、短四肢和蓬松尾巴。让朴素的形状与相近的暖色，先建立两位角色之间的联系。',layout:'original-design',images:[{src:'lantern-original-design.jpg',caption:'原始角色手稿 / 线稿与上色对照，取自原始 Procreate 设定稿'}]},
+   {eyebrow:'02 / DRAWING STUDIES',title:'把性格，放进日常的小动作。',text:'提灯、递食、读书与扫地，是小守灯人的日常；蜷卧与衔花，是小狐狸放下戒备的瞬间。以下均来自原始绘画工程，保留手绘线条与轻柔的上色。',layout:'manuscript-studies',images:[{src:'lantern-carrying-native.png',caption:'原始手稿 / 提灯同行'},{src:'lantern-offering-native.png',caption:'原始手稿 / 俯身递食'},{src:'lantern-reading-original.jpg',caption:'原始手稿 / 安静读书'},{src:'lantern-sweeping-original.jpg',caption:'原始手稿 / 庭院扫地'},{src:'lantern-sleeping-original.jpg',caption:'原始手稿 / 小狐蜷卧'},{src:'lantern-fox-flower-original.jpg',caption:'原始手稿 / 小狐衔花'}]},
+   {eyebrow:'03 / CHARACTER MODEL',title:'小守灯人。安静，也愿意靠近。',text:'以原始角色为基础，补齐正面、侧面与背面视图，统一发髻、双簪、衣领、腰带与鞋履的关系。表情保持克制，让好奇、害羞与安心之间的细小变化能够被看见。',layout:'model-sheets',images:[{src:'lantern-scholar-model-sheet.webp',caption:'设定补充 / 三视图、表情与提灯细节；基于原稿整理与辅助补绘'}],notes:[['造型识别','圆润头部、低髻与双簪；交领、宽袖与柔和的衣摆。'],['表情范围','平静、好奇、含蓄的笑与闭眼安心，保持同一张脸的比例。'],['提灯道具','保留纸灯笼、细柄与暖光，让灯成为人物与环境的连接。']]},
+   {eyebrow:'04 / FOX MODEL',title:'小狐。圆润的身形，轻轻的回应。',text:'沿用原稿的大耳朵、短腿、浅色胸毛和蓬松尾巴，补充不同视角与表情。保留眉间浅色斑、深色耳尖和爪尖，让角色在转向或改变神态时仍容易被辨认。',layout:'model-sheets',images:[{src:'lantern-fox-model-sheet.webp',caption:'设定补充 / 坐姿视图、表情、尾尖与爪部细节；基于原稿整理与辅助补绘'}],palette:[['衣衫与毛色','#FDA761'],['内衫与暖光','#F9CC77'],['胸毛与尾尖','#F8D6A5'],['眼睛与爪尖','#5B4037'],['肤色','#FCC9A0']]},
+   {eyebrow:'05 / ENVIRONMENT & LIGHT',title:'从落日，到星夜。',text:'以树木、田野、村落与小路组织手绘场景。在黄昏暖光与星夜蓝色之间，保留乡间的安静，让灯笼成为一处温暖的视觉线索。',layout:'environment-studies',images:[{src:'lantern-sunset-tree.png',caption:'原始场景绘画 / 树下的暖光'},{src:'lantern-sunset-path.png',caption:'原始场景绘画 / 通向村落的小路'},{src:'lantern-night-village.png',caption:'原始场景绘画 / 星夜村落'},{src:'lantern-night-path.png',caption:'原始场景绘画 / 田野归途'}]}
   ],
-  reflection:'陪伴无需多言。让人物的姿态、灯笼的暖光与环境中的留白共同传递情感。'
+  reflection:'陪伴无需多言。让人物的姿态、灯笼的暖光与画面中的留白共同传递情感。'
  },
  xy:{
   image:'xy-logo-cutout.svg',extra:[],

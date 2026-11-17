@@ -46,7 +46,10 @@ jobs:
           cp -R assets _site/assets
           cp -R media/. _site/media/
           cp "$RUNNER_TEMP/portfolio-source/media/patrol-film-final.mp4" _site/media/
-          test -s _site/media/lantern-film-actions-v2.mp4
+          rm -f _site/media/lantern-film*.mp4
+          test -s _site/assets/lantern-original-design.jpg
+          test -s _site/assets/lantern-scholar-model-sheet.webp
+          test -s _site/assets/lantern-fox-model-sheet.webp
           test -s _site/media/patrol-film-final.mp4
       - uses: actions/upload-pages-artifact@v3
         with:
